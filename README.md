@@ -170,7 +170,99 @@ Figure 5 presents a graph of the model's predictions using all the predictors. T
 
 ![Figure 5](img/figure5.png)
 
+### Mathematical Analysis
 
+Interpreting Figure 6, the residuals range from -146.14 to 855.31, with a small interquartile range suggesting that data is closely clustered around the mean. The presence of outliers in the dataset explains the large minimum and maximum values. The intercept of -1.307 indicates that, in the absence of any delays (all predictors at zero), planes tend to depart 1.3 minutes earlier than the scheduled departure time. This finding could be attributed to the need for early departures to optimize travel schedules and mitigate potential delays in subsequent flights.
+
+![Figure 6](img/figure6.png)
+
+The coefficients represent the slope of each predictor, and the small standard errors of the predictors indicate precise estimates. The p-values, set at 0.01 for this analysis, show that three predictors have statistical significance, leading to the rejection of the null hypothesis and the acceptance of the alternative hypothesis. Notably, the T-value for security is relatively low, which can be attributed to the small sample size of security delays in the dataset.
+
+The coefficient of NAS (National Aviation System) being less than one raises questions logically, but it is statistically allowed. This observation can be explained by considering how NAS delays are measured. It becomes evident that some data points may not be entirely suitable for the model due to the way NAS delays were measured. Consequently, it was concluded that NAS is not statistically significant in predicting departure delays.
+
+The adjusted R-squared value, being 0.9247, indicates that the model provides a good fit to the data, capturing approximately 92.47% of the variability in the outcome variable.
+
+To further test the significance of security as a predictor, an additional analysis using the "Anova" function in R was performed (Figure 7). Despite the moderately high F-value, the small sample size implies that security is not a significant predictor in the current dataset. However, it was acknowledged that a dataset with a higher number of security delays may reveal a different outcome.
+
+![Figure 7](img/figure7.png)
+
+A subsequent analysis without security as a predictor (Figure 8) showed minimal impact on the model, as evidenced by similar T-values, P-values, and adjusted R-squared values compared to the initial model. This further supported the conclusion that security was not a crucial predictor in the current dataset.
+
+![Figure 8](img/figure8.png)
+
+### Refining the Dataset
+
+![Figure 9](img/figure9.png)
+
+In a pursuit to enhance the model's predictive power, an analysis was conducted using a refined dataset containing only delays in any of the predictors (removing rows with all 0s). The results (Figure 9) indicated a reduced range of residuals and a positive intercept of 8 minutes, suggesting that an average delay of 8 minutes occurs whenever there is a delay in any of the predictors.
+
+![Figure 10](img/figure10.png)
+![Figure 11](img/figure11.png)
+![Figure 12](img/figure12.png)
+![Figure 13](img/figure13.png)
+![Figure 14](img/figure14.png)
+![Figure 15](img/figure15.png)
+
+It is worth noting that the coefficients of NAS and weather delays being less than 1 can be explained by the way weather delays are measured, considering factors like turbulence occurring after departure. Similar to the previous analysis, security, NAS, and weather delays were not considered significant factors in predicting departure delays, in line with the findings from individual predictor plots. However, the adjusted R-squared value of 0.9776 in this model indicates an improved predictive performance.
+
+These results suggest that focusing on delays in any of the predictors, while disregarding the absence of delays, yields a better predictive model for flight departure times. The refined dataset showcases higher accuracy and captures a larger proportion of the variability in the departure delay outcome.
+
+In conclusion, the analysis provides valuable insights into the significance of different delays as predictors in predicting flight departure times. The refined dataset, focusing on delays specifically, offers a more accurate and robust model. These findings contribute to the field of aviation, enabling better predictions of departure times and assisting airlines in optimizing flight schedules and minimizing disruptions caused by delays. Further research and exploration of larger datasets could provide deeper insights into the relationships between predictors and departure delays, potentially leading to more sophisticated and precise predictive models.
+
+## Discussion/Conclusion
+
+To sum it up, my model did a great job at predicting flight departure times when considering the
+major causes of flight delay, with an accuracy of 92.47%. Through mathematical analysis, I was able to
+conclude that for my data set of analyzing departure times, within 2013 to 2023 for flights in San
+Francisco international airport solely from Delta Airlines, the main factors of flight delays were due to
+late aircraft and carrier issues. This is an extremely valuable resource as it gives airlines a direction to
+work towards when improving their on-time performance. For example, these issues are well within the
+airline’s control, if they could perhaps improve their scheduling or operational procedures, then perhaps
+maintenance or crew problems would be minimized. My model is also easy to understand and it’s able to
+clearly depict these relationships between the predictor and response variables. However, this also
+determines the downfall of my model.
+
+If my model was to consider data that were to include a non-linear relationship, I would not be
+able to capture these non-linear patterns. In particular, my model was considered fair because I only
+considered data from a specific airport, so factors such as weather delay would apply to all flights
+objectively. Nonetheless, if my model was to have a parameter that would take weather conditions into
+account, my model wouldn’t perform well. This is because although it may be intuitive that less
+favorable weather conditions will result in a flight being delayed, this is not always the case. For instance,
+a shower of light rain will usually not result in a delayed flight, but a severe thunderstorm would result in
+a flight being heavily delayed, or even canceled. This implies that the opportunity to build a more
+accurate model would require a different approach outside the scope of my class, utilizing different
+regression methods. Furthermore, my model would be more accurate if I were to include more predictors. For example, to include flights that ended up being canceled, or even factors that would indicate that a
+delayed flight could be out of their control.such as a late arriving passenger, damaged runway, etc.
+
+# References
+United States Department of Transportation Bureau of Transportation Statistics. Detailed statistics
+departures. 2013-2023, Departure Delay, Cause of Delay, San Francisco, CA: San Francisco International
+(SFO), Delta Airlines Inc. (DL)<https://www.transtats.bts.gov/ontime/departures.aspx>
+United States Department of Transportation Bureau of Transportation Statistics. Airlines operate
+more flights in june; on-time performance hits a high. 2020.
+United States Department of Transportation Bureau of Transportation Statistics. Flight
+cancellations stabilize in May, but total flights hit another record low. 2020.
+Anish M Kalliguddi and Aera K Leboulluec. Predictive modeling of aircraft flight delay.
+Universal Journal of Management, 5(10):485–491, 2017.
+Evangelos Mitsokapas, Benjamin Sch ̈afer, Rosemary J Harris, and Christian Beck. Statistical
+characterization of airplane delays. Scientific Reports, 11(1):7855, 2021.
+Ronald Wesonga, Fabian Nabugoomu, and Peter Jehopio. Parameterized framework for the
+analysis of probabilities of aircraft delay at an airport. Journal of Air Transport Management, 23:1–4,
+2012.
+R Core Team (2023). _R: A Language and Environment for Statistical Computing_. R
+Foundation for Statistical Computing, Vienna, Austria. <https://www.R-project.org/>
+Johnston, S. (2015, April 23). A quick and easy function to plot LM() results with GGPLOT2 in
+R. Johnston Lab. Retrieved May 2, 2023,
+<https://sejohnston.com/2012/08/09/a-quick-and-easy-function-to-plot-lm-results-in-r/>
+Zhao, L. S23-MATH150-Lecture22, April 23, 2023,
+<https://catcourses.ucmerced.edu/courses/27033/files/folder/LectureSlides?preview=5948414>
+Carreira-Perpinan, M.A.. CSE176 Introduction to Machine Learning — Lecture notes, September
+2, 2019, <https://faculty.ucmerced.edu/mcarreira-perpinan/teaching/CSE176/lecturenotes.pdf >
+Bhat, H. MATH 140 Lecture Note (Hand-Written), February, 2022
+Shams, A. (2022, May). Why do airlines always fly so early? why do I have to be at the ... -
+quora. Why do airlines always fly so early? Retrieved May 1, 2023,
+<https://dailybest.quora.com/https-www-quora-com-Why-do-airlines-always-fly-so-early-Why-do-I-have
+-to-be-at-the-airport-at-4-am-I-honestly-dont-und>
 
 
 # Complete R Markdown Documentation & Code used to create Report in .pdf 
