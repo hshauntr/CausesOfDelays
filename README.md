@@ -136,11 +136,11 @@ Where:
 
 To make predictions using the multiple linear regression model, I needed to determine the values of the coefficients (β₀, β₁, β₂, ..., βᵣ). For this purpose, I employed the Least Square Method, a popular technique used to estimate the coefficients in linear regression models.
 
-The Least Square Method aimed to minimize the sum of squared differences between the predicted outcomes (y_head) and the actual departure delays. The objective function E(X; β) was formulated as follows:
+The Least Square Method aimed to minimize the sum of squared differences between the predicted outcomes (y_hat) and the actual departure delays. The objective function E(X; β) was formulated as follows:
 
-E(X; β) = ∑ (y_head - Y)²
+E(X; β) = ∑ (y_hat - Y)²
 
-Here, y_head represented the predicted departure delay based on the multiple linear regression model.
+Here, y_hat represented the predicted departure delay based on the multiple linear regression model.
 
 By minimizing the error function, I could find the set of coefficients (β₀, β₁, β₂, ..., βᵣ) that yielded the best-fitted line to the data. These optimized coefficients would ensure that the model's predictions were as close as possible to the actual departure delays.
 
