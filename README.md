@@ -160,12 +160,18 @@ In conclusion, my approach to the mathematical model focused on using a supervis
 
 By employing this approach, I aimed to create a powerful tool for predicting flight delays accurately and gaining valuable insights into the factors influencing departure times. The model's ability to approximate the data with high performance would pave the way for informed decision-making and improved efficiency in the aviation industry.
 
+## Analysis & Results
+
+Before commencing the analysis, it is essential to reiterate the underlying assumption of the study: the aim is to predict the accuracy of flight departure times solely using the listed delays as predictors. The hypothesis postulates that all predictors are significant in the model, which will be tested in the subsequent analysis.
+
+The analysis was conducted using the R programming language, wherein 80% of the data was allocated to training the model, while 20% was reserved for testing. The selection of an 80/20 split was to strike a balance between overfitting and underfitting the model, ensuring generalization to new data.
+
+Figure 5 presents a graph of the model's predictions using all the predictors. The subsequent summary of the linear model (Figure 6) showcases the departure delay as the outcome variable, and the five types of delays as predictor variables.
+
+![Figure 5](img/figure5.png)
 
 
 
-
-# Complete Project Report in .pdf
-[View Here](https://github.com/hshauntr/CausesOfDelays/blob/main/Predicting%20and%20Analyzing%20Causes%20of%20Delay%20for%20Flight%20Departures.pdf)
 
 # Complete R Markdown Documentation & Code used to create Report in .pdf 
 [View Here](https://github.com/hshauntr/CausesOfDelays/blob/main/R%20Markdown%20PDF.pdf)
