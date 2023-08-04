@@ -16,7 +16,7 @@ flights from Delta Airlines at the San Francisco International Airport from Janu
 recognized that flight carrier delay and late arriving aircraft were the biggest causes of delays, suggesting
 that it is well within an airline’s control to improve their on-time performance.
 
-[!](img/delays.jpg)
+![](img/delays.jpg)
 
 ## Introduction
 There is a growing interest in understanding and quantifying flight delays, as evidenced by the
